@@ -1,0 +1,16 @@
+# Build artifacts
+outputs/
+
+# Local scratch files
+work/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Dependency directories
+node_modules/
+
+# Archive files
+*.zip
+*.crx

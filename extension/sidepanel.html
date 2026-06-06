@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x63D0;&#x793A;&#x8BCD;&#x7BA1;&#x7406;&#x52A9;&#x624B;</title>
+    <link rel="stylesheet" href="styles/sidepanel.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>&#x63D0;&#x793A;&#x8BCD;&#x5E93;</h1>
+        </div>
+        <button id="open-form-button" class="primary-button" type="button">&#x65B0;&#x589E; Prompt</button>
+      </header>
+
+      <section class="toolbar">
+        <label class="search-field">
+          <span class="sr-only">&#x641C;&#x7D22; Prompt</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="&#x641C;&#x7D22;&#x6807;&#x9898;&#x3001;&#x5206;&#x7C7B;&#x6216;&#x5185;&#x5BB9;"
+          />
+        </label>
+        <div
+          id="category-filters"
+          class="category-filters"
+          aria-label="&#x5206;&#x7C7B;&#x7B5B;&#x9009;"
+        ></div>
+      </section>
+
+      <main class="content">
+        <section class="list-panel">
+          <div id="stats" class="stats"></div>
+          <div id="prompt-list" class="prompt-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state hidden">
+            <h2>&#x8FD8;&#x6CA1;&#x6709; Prompt</h2>
+            <p>
+              &#x5148;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; Prompt&#xFF0C;&#x540E;&#x9762;&#x5C31;&#x80FD;&#x76F4;&#x63A5;&#x5728;&#x5217;&#x8868;&#x91CC;&#x641C;&#x7D22;&#x548C;&#x590D;&#x5236;&#x3002;
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="editor-dialog" class="editor-dialog">
+      <form id="prompt-form" class="editor-form" method="dialog">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">&#x7F16;&#x8F91;&#x533A;</p>
+            <h2 id="dialog-title">&#x65B0;&#x589E; Prompt</h2>
+          </div>
+          <button id="close-dialog-button" class="ghost-button" type="button">&#x5173;&#x95ED;</button>
+        </div>
+
+        <input id="prompt-id" type="hidden" />
+
+        <label class="field">
+          <span>&#x6807;&#x9898;</span>
+          <input id="title-input" name="title" type="text" maxlength="120" required />
+        </label>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>&#x5206;&#x7C7B;</span>
+            <select id="category-select" name="categoryId"></select>
+          </label>
+          <button id="manage-categories-button" class="ghost-button align-end" type="button">
+            &#x7BA1;&#x7406;&#x5206;&#x7C7B;
+          </button>
+        </div>
+
+        <label class="field">
+          <span>Prompt &#x5185;&#x5BB9;</span>
+          <textarea id="content-input" name="content" rows="9" required></textarea>
+        </label>
+
+        <div id="capture-status" class="capture-status hidden" aria-live="polite"></div>
+
+        <label class="field">
+          <span>&#x622A;&#x56FE;</span>
+          <div id="image-dropzone" class="image-dropzone" tabindex="0">
+            <input id="image-input" name="image" type="file" accept="image/*" />
+            <div class="dropzone-copy">
+              <strong>
+                &#x70B9;&#x51FB;&#x9009;&#x62E9;&#x56FE;&#x7247;&#xFF0C;&#x6216;&#x76F4;&#x63A5;&#x628A;&#x6587;&#x4EF6;&#x62D6;&#x8FDB;&#x6765;
+              </strong>
+              <small>
+                &#x539F;&#x56FE;&#x4F1A;&#x76F4;&#x63A5;&#x5B58;&#x672C;&#x5730;&#xFF0C;&#x4E0D;&#x505A;&#x5F3A;&#x5236;&#x7F29;&#x653E;&#x3002;
+              </small>
+            </div>
+          </div>
+        </label>
+
+        <div id="image-preview-wrap" class="image-preview-wrap hidden">
+          <img id="image-preview" alt="Prompt &#x622A;&#x56FE;&#x9884;&#x89C8;" />
+          <button id="remove-image-button" class="ghost-button" type="button">
+            &#x79FB;&#x9664;&#x622A;&#x56FE;
+          </button>
+        </div>
+
+        <div class="dialog-actions">
+          <button id="delete-button" class="danger-button hidden" type="button">&#x5220;&#x9664;</button>
+          <button class="primary-button" type="submit">&#x4FDD;&#x5B58; Prompt</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="category-dialog" class="editor-dialog narrow">
+      <div class="editor-form">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">&#x5206;&#x7C7B;</p>
+            <h2>&#x7BA1;&#x7406;&#x5206;&#x7C7B;</h2>
+          </div>
+          <button id="close-category-dialog-button" class="ghost-button" type="button">
+            &#x5173;&#x95ED;
+          </button>
+        </div>
+
+        <form id="category-form" class="category-create-row">
+          <input
+            id="category-name-input"
+            type="text"
+            maxlength="40"
+            placeholder="&#x8F93;&#x5165;&#x65B0;&#x5206;&#x7C7B;&#x540D;&#x79F0;"
+            required
+          />
+          <button class="primary-button" type="submit">&#x6DFB;&#x52A0;</button>
+        </form>
+
+        <div id="category-list" class="category-list"></div>
+      </div>
+    </dialog>
+
+    <dialog id="detail-dialog" class="detail-dialog">
+      <article class="detail-panel">
+        <div class="dialog-header">
+          <div>
+            <p id="detail-category" class="eyebrow"></p>
+            <h2 id="detail-title"></h2>
+          </div>
+          <button id="close-detail-dialog-button" class="ghost-button" type="button">
+            &#x5173;&#x95ED;
+          </button>
+        </div>
+
+        <button id="detail-image-button" class="detail-image-button hidden" type="button">
+          <img id="detail-image" alt="Prompt &#x622A;&#x56FE;" />
+        </button>
+
+        <pre id="detail-content" class="detail-content"></pre>
+
+        <div class="dialog-actions">
+          <button id="detail-copy-button" class="ghost-button" type="button">&#x590D;&#x5236; Prompt</button>
+          <button id="detail-edit-button" class="primary-button" type="button">&#x7F16;&#x8F91;</button>
+        </div>
+      </article>
+    </dialog>
+
+    <dialog id="image-lightbox-dialog" class="image-lightbox-dialog">
+      <button id="close-lightbox-button" class="lightbox-close-button" type="button">&#x5173;&#x95ED;</button>
+      <img id="lightbox-image" alt="&#x653E;&#x5927;&#x7684; Prompt &#x622A;&#x56FE;" />
+    </dialog>
+
+    <template id="prompt-card-template">
+      <article class="prompt-card">
+        <div class="card-image-wrap hidden">
+          <img class="card-image" alt="" />
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-category"></span>
+            <span class="card-date"></span>
+          </div>
+          <h3 class="card-title"></h3>
+          <p class="card-text"></p>
+        </div>
+        <div class="card-actions">
+          <button class="ghost-button copy-button" type="button">&#x590D;&#x5236;</button>
+          <button class="ghost-button edit-button" type="button">&#x7F16;&#x8F91;</button>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>
