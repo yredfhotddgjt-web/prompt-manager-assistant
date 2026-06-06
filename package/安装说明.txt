@@ -1,0 +1,32 @@
+提示词管理助手 安装说明
+
+这个压缩包解压后，根目录会直接看到：
+
+1. 安装说明.txt
+2. manifest.json
+3. background.js
+4. content-script.js
+5. sidepanel.html
+6. sidepanel.js
+7. icons / lib / styles 等目录
+
+Chrome 安装方法
+
+1. 解压压缩包
+2. 打开 chrome://extensions
+3. 打开右上角“开发者模式”
+4. 点击“加载已解压的扩展程序”
+5. 选择当前解压后的整个目录
+
+Edge 安装方法
+
+1. 解压压缩包
+2. 打开 edge://extensions
+3. 打开左下角“开发人员模式”
+4. 点击“加载解压缩的扩展”
+5. 选择当前解压后的整个目录
+
+建议
+
+- 不要只选单个文件，要选择整个解压后的目录
+- 如果浏览器里已经加载过旧版本，刷新扩展后再测试

@@ -14,7 +14,7 @@
   <a href="https://yredfhotddgjt-web.github.io/prompt-manager-assistant/">
     <img src="https://img.shields.io/badge/Demo-Live_Showcase-6A5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Demo" />
   </a>
-  <a href="./package">
+  <a href="https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/latest">
     <img src="https://img.shields.io/badge/Package-Download_Files-1FAD83?style=for-the-badge&logo=files&logoColor=white" alt="Package" />
   </a>
   <a href="./extension">
@@ -67,16 +67,16 @@
 
 ## 文件包
 
-如果你想直接下载扩展并本地安装，可以使用仓库里的文件包：
+如果你想直接下载扩展并本地安装，建议使用 Releases 里的正式发布包：
 
-- [打开文件包目录](./package)
-- [查看安装说明](./package/README.md)
+- [打开 Latest Release](https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/latest)
+- [查看当前版本 v0.1.0](https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/tag/v0.1.0)
 
-文件包目录中已经包含：
+发布包中已经包含：
 
-- 可直接加载的扩展文件夹
-- 一个压缩好的 ZIP 包
-- Chrome / Edge 的安装说明
+- 可直接加载的扩展文件
+- `安装说明.txt`
+- Chrome / Edge 的加载说明
 
 ## 安装方式
 
