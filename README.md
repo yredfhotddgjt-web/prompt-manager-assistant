@@ -12,16 +12,16 @@
 
 <p align="center">
   <a href="https://yredfhotddgjt-web.github.io/prompt-manager-assistant/">
-    <img src="https://img.shields.io/badge/Demo-Live_Showcase-6A5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Demo" />
+    <img src="https://img.shields.io/badge/立即体验-Demo_Showcase-6A5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="立即体验" />
   </a>
   <a href="https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/latest">
-    <img src="https://img.shields.io/badge/Package-Download_Files-1FAD83?style=for-the-badge&logo=files&logoColor=white" alt="Package" />
+    <img src="https://img.shields.io/badge/下载发布版-Latest_Release-1FAD83?style=for-the-badge&logo=files&logoColor=white" alt="下载发布版" />
   </a>
   <a href="./extension">
-    <img src="https://img.shields.io/badge/Extension-Source-F28C38?style=for-the-badge&logo=github&logoColor=white" alt="Extension Source" />
+    <img src="https://img.shields.io/badge/查看源码-Extension_Source-F28C38?style=for-the-badge&logo=github&logoColor=white" alt="查看源码" />
   </a>
   <a href="./LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-1FAD83?style=for-the-badge" alt="MIT License" />
+    <img src="https://img.shields.io/badge/开源协议-MIT-1FAD83?style=for-the-badge" alt="开源协议" />
   </a>
 </p>
 
@@ -63,7 +63,7 @@
 - [打开 Demo Showcase](https://yredfhotddgjt-web.github.io/prompt-manager-assistant/)
 
 如果你准备把这个仓库作为公开展示主页，这个链接会是最适合对外分享的入口。  
-只要启用 GitHub Pages，仓库首页里的 `Demo` 按钮就会直接跳过去。
+仓库首页里的 `立即体验` 按钮会直接跳到这里。
 
 ## 文件包
 
