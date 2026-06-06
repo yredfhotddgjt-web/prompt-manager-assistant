@@ -32,42 +32,38 @@
   <img src="https://img.shields.io/badge/Feature-Search%20%26%20Categories-111827?style=flat-square" alt="Search and Categories" />
 </p>
 
-## 项目简介
+## 为什么做它
 
-提示词管理助手的目标很简单：  
-把散落在网页、社区、文档和灵感页面里的 Prompt，沉淀成你自己的本地提示词资料库。
+很多好 Prompt 都散落在网页、社区、文档和聊天记录里。  
+提示词管理助手的目标很直接：把这些零散灵感，沉淀成你自己的本地 Prompt 资料库。
 
-它更适合这些真实场景：
+## 它解决什么问题
 
-- 浏览网页时，直接选中文本并右键保存 Prompt
-- 给 Prompt 绑定截图或参考图，方便后续复用
-- 按分类和关键词管理大量提示词
-- 在需要创作时，快速搜索、查看并一键复制已有 Prompt
+- 看到有价值的 Prompt，不用再手动复制到别的文档
+- 保存时尽量拆分标题、正文和图片，后面回看更清晰
+- 需要复用时，可以按分类和关键词快速找到并复制
+
+## 它适合谁
+
+- 经常收集 AI 提示词的创作者
+- 需要整理灵感素材的设计师和内容团队
+- 希望把 Prompt 从“随手收藏”变成“可重复调用资产”的重度用户
 
 ## 核心体验
 
-- 侧边栏形态，打开浏览器即可随时查看 Prompt 库
-- 默认展示 Prompt 列表，支持滚动浏览和卡片详情
-- 支持自定义分类、分类筛选和关键词搜索
-- 支持新增、编辑、删除 Prompt
-- 支持列表页直接复制，也支持详情页查看完整内容
-- 支持给 Prompt 绑定图片，并保留原图
-- 支持拖拽图片导入截图区
-- 支持网页内选中文本后右键，一键保存为 Prompt
-- 支持基础结构识别：优先拆分标题、正文，并在明确选中图片时一并导入
+- 侧边栏形态，浏览和整理都在浏览器里完成
+- 右键即可保存 Prompt
+- 支持分类、搜索、详情查看和一键复制
+- 支持图片绑定、本地保存和拖拽导入
 
-## Demo
-
-在线演示页：
+## 立即体验
 
 - [打开 Demo Showcase](https://yredfhotddgjt-web.github.io/prompt-manager-assistant/)
 
-如果你准备把这个仓库作为公开展示主页，这个链接会是最适合对外分享的入口。  
+如果你准备把这个仓库作为公开展示主页，这个链接就是最适合对外分享的入口。  
 仓库首页里的 `立即体验` 按钮会直接跳到这里。
 
-## 文件包
-
-如果你想直接下载扩展并本地安装，建议使用 Releases 里的正式发布包：
+## 下载发布版
 
 - [打开 Latest Release](https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/latest)
 - [查看当前版本 v0.1.0](https://github.com/yredfhotddgjt-web/prompt-manager-assistant/releases/tag/v0.1.0)
@@ -78,18 +74,18 @@
 - `安装说明.txt`
 - Chrome / Edge 的加载说明
 
-## 安装方式
+## 本地安装
 
 ### Chrome
 
-1. 打开 `chrome://extensions`
+1. 打开“扩展-管理扩展”
 2. 打开右上角“开发者模式”
 3. 点击“加载已解压的扩展程序”
 4. 选择当前项目下的 `extension` 文件夹
 
 ### Edge
 
-1. 打开 `edge://extensions`
+1. 打开“扩展-管理扩展”
 2. 打开左下角“开发人员模式”
 3. 点击“加载解压缩的扩展”
 4. 选择当前项目下的 `extension` 文件夹
@@ -100,29 +96,9 @@
 docs/         GitHub Pages 演示页
 extension/    浏览器扩展主体代码
 outputs/      本地导出产物
+package/      发布包与安装说明
 work/         临时工作文件
 ```
-
-扩展主目录：
-
-```text
-extension/
-  background.js
-  content-script.js
-  manifest.json
-  sidepanel.html
-  sidepanel.js
-  icons/
-  lib/
-  styles/
-```
-
-## 开发说明
-
-- 扩展基于 Manifest V3
-- 数据默认保存在本地
-- 仓库忽略了 `outputs/` 和 `work/`，这两个目录主要用于本地打包和制作素材
-- `docs/` 目录用于 GitHub Pages 展示页，适合做对外演示和产品介绍
 
 ## 路线图
 
