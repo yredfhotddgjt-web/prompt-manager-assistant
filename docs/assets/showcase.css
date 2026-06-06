@@ -144,6 +144,39 @@ body::before {
   font-size: 19px;
 }
 
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(118, 161, 255, 0.24);
+  background: linear-gradient(180deg, rgba(91, 115, 255, 0.22), rgba(221, 115, 255, 0.14));
+  color: #f7fbff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 30px rgba(10, 15, 34, 0.32);
+}
+
+.action-button.secondary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(118, 161, 255, 0.42);
+}
+
 .section {
   margin-top: 28px;
   padding: 32px;

@@ -14,6 +14,9 @@
   <a href="https://yredfhotddgjt-web.github.io/prompt-manager-assistant/">
     <img src="https://img.shields.io/badge/Demo-Live_Showcase-6A5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Demo" />
   </a>
+  <a href="./package">
+    <img src="https://img.shields.io/badge/Package-Download_Files-1FAD83?style=for-the-badge&logo=files&logoColor=white" alt="Package" />
+  </a>
   <a href="./extension">
     <img src="https://img.shields.io/badge/Extension-Source-F28C38?style=for-the-badge&logo=github&logoColor=white" alt="Extension Source" />
   </a>
@@ -61,6 +64,19 @@
 
 如果你准备把这个仓库作为公开展示主页，这个链接会是最适合对外分享的入口。  
 只要启用 GitHub Pages，仓库首页里的 `Demo` 按钮就会直接跳过去。
+
+## 文件包
+
+如果你想直接下载扩展并本地安装，可以使用仓库里的文件包：
+
+- [打开文件包目录](./package)
+- [查看安装说明](./package/README.md)
+
+文件包目录中已经包含：
+
+- 可直接加载的扩展文件夹
+- 一个压缩好的 ZIP 包
+- Chrome / Edge 的安装说明
 
 ## 安装方式
 
