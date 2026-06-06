@@ -1,40 +1,66 @@
 # 提示词管理助手
 
-一个面向 Chrome、Edge 等 Chromium 浏览器的侧边栏扩展，用来保存、分类、搜索、查看和快速复用 Prompt。
+<p align="center">
+  <img src="./docs/assets/poster-generated.png" alt="提示词管理助手海报" width="100%" />
+</p>
+
+<h1 align="center">把网页里的好 Prompt，一键收进你的提示词库</h1>
+
+<p align="center">
+  一个面向 Chrome / Edge 的侧边栏扩展，用来保存、分类、搜索、查看和快速复用 Prompt。
+</p>
+
+<p align="center">
+  <a href="https://yredfhotddgjt-web.github.io/prompt-manager-assistant/">
+    <img src="https://img.shields.io/badge/Demo-Live_Showcase-6A5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Demo" />
+  </a>
+  <a href="./extension">
+    <img src="https://img.shields.io/badge/Extension-Source-F28C38?style=for-the-badge&logo=github&logoColor=white" alt="Extension Source" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-1FAD83?style=for-the-badge" alt="MIT License" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Side%20Panel-MV3-111827?style=flat-square" alt="Side Panel" />
+  <img src="https://img.shields.io/badge/Storage-Local%20Sync-111827?style=flat-square" alt="Local Sync" />
+  <img src="https://img.shields.io/badge/Workflow-Right%20Click%20Save-111827?style=flat-square" alt="Right Click Save" />
+  <img src="https://img.shields.io/badge/Feature-Search%20%26%20Categories-111827?style=flat-square" alt="Search and Categories" />
+</p>
 
 ## 项目简介
 
-提示词管理助手的目标很简单：把分散在网页、社区、文档和灵感页面里的 Prompt 收回来，沉淀成你自己的本地提示词库。
+提示词管理助手的目标很简单：  
+把散落在网页、社区、文档和灵感页面里的 Prompt，沉淀成你自己的本地提示词资料库。
 
-它适合这些场景：
+它更适合这些真实场景：
 
-- 浏览网页时，右键把 Prompt 快速收进侧边栏
-- 给 Prompt 绑定截图，方便后续回看参考图
-- 按分类和关键词整理大量提示词
-- 在使用 AI 工具前，快速查找并复制已有 Prompt
+- 浏览网页时，直接选中文本并右键保存 Prompt
+- 给 Prompt 绑定截图或参考图，方便后续复用
+- 按分类和关键词管理大量提示词
+- 在需要创作时，快速搜索、查看并一键复制已有 Prompt
 
-## 当前能力
+## 核心体验
 
-- 侧边栏形态，点击扩展图标即可打开
-- 默认展示 Prompt 列表，支持滚动浏览
-- 支持自定义分类和分类筛选
+- 侧边栏形态，打开浏览器即可随时查看 Prompt 库
+- 默认展示 Prompt 列表，支持滚动浏览和卡片详情
+- 支持自定义分类、分类筛选和关键词搜索
 - 支持新增、编辑、删除 Prompt
-- 支持列表卡片直接复制 Prompt
-- 支持点击卡片进入详情页，并放大查看截图
-- 支持给 Prompt 绑定截图，并以原图本地保存
-- 支持把图片文件直接拖进截图区域
-- 支持搜索标题、分类和内容
-- 支持在网页里选中文本后右键，一键添加到侧边栏
-- 支持基础结构识别：优先拆分标题和正文，并在明确选中图片时一并导入
+- 支持列表页直接复制，也支持详情页查看完整内容
+- 支持给 Prompt 绑定图片，并保留原图
+- 支持拖拽图片导入截图区
+- 支持网页内选中文本后右键，一键保存为 Prompt
+- 支持基础结构识别：优先拆分标题、正文，并在明确选中图片时一并导入
 
-## 采集规则
+## Demo
 
-- 只选中文本时：默认只保存标题和正文，不自动补附近图片或截图
-- 明确选中图片时：会尝试把图片一起导入
-- 单独在图片上右键时：会按图片保存到当前草稿或新草稿
-- 对部分特殊图片来源：支持截图裁剪兜底
+在线演示页：
 
-这套规则是偏保守的，优先避免“明明只想保存文本，却被误带图”。
+- [打开 Demo Showcase](https://yredfhotddgjt-web.github.io/prompt-manager-assistant/)
+
+如果你准备把这个仓库作为公开展示主页，这个链接会是最适合对外分享的入口。  
+只要启用 GitHub Pages，仓库首页里的 `Demo` 按钮就会直接跳过去。
 
 ## 安装方式
 
@@ -55,6 +81,15 @@
 ## 项目结构
 
 ```text
+docs/         GitHub Pages 演示页
+extension/    浏览器扩展主体代码
+outputs/      本地导出产物
+work/         临时工作文件
+```
+
+扩展主目录：
+
+```text
 extension/
   background.js
   content-script.js
@@ -66,23 +101,19 @@ extension/
   styles/
 ```
 
-主要目录说明：
-
-- `extension/`：扩展主体代码
-
 ## 开发说明
 
 - 扩展基于 Manifest V3
 - 数据默认保存在本地
-- 当前仓库忽略了 `outputs/` 和 `work/`，这些目录用于本地打包和测试，不参与版本控制
-- 项目展示页正在重做，旧版展示素材已从仓库中移除
+- 仓库忽略了 `outputs/` 和 `work/`，这两个目录主要用于本地打包和制作素材
+- `docs/` 目录用于 GitHub Pages 展示页，适合做对外演示和产品介绍
 
 ## 路线图
 
-- 优化更多网页结构下的标题/正文识别
-- 继续提升多站点通用性
+- 优化更多网页结构下的标题 / 正文识别
+- 提升更多站点场景下的图片捕获稳定性
 - 准备 Chrome Web Store 与 Microsoft Edge Add-ons 上架版本
-- 补充欢迎页、隐私政策和更完整的商店素材
+- 补充欢迎页、隐私政策和商店素材
 
 ## 开源协议
 
