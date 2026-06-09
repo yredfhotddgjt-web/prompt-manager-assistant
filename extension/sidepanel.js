@@ -612,11 +612,17 @@ function clearStagedImage() {
 async function applyPendingSelectionDraft() {
   const result = await chrome.storage.local.get(PENDING_SELECTION_KEY);
   const draft = result[PENDING_SELECTION_KEY];
+  if (!draft || typeof draft !== "object") {
+    return;
+  }
+
   const draftHasContent = Boolean(draft?.content);
   const draftImageUrls = draft?.imageUrls || [];
   const primaryImageUrl = draft?.primaryImageUrl || draftImageUrls[0] || "";
   const captureMode = draft?.captureMode || "text-append";
-  if (!draftHasContent && draftImageUrls.length === 0 && !draft.screenshotDataUrl) {
+  const hasScreenshotFallback = Boolean(draft?.screenshotDataUrl);
+
+  if (!draftHasContent && draftImageUrls.length === 0 && !hasScreenshotFallback) {
     return;
   }
 
@@ -668,7 +674,7 @@ async function applyPendingSelectionDraft() {
     elements.categorySelect.value = defaultCategoryId;
   }
 
-  const imageSourceKey = primaryImageUrl || (draft.screenshotDataUrl && "screenshot-fallback") || "";
+  const imageSourceKey = primaryImageUrl || (hasScreenshotFallback && "screenshot-fallback") || "";
   if (imageSourceKey && (shouldReplaceCurrentDraft || imageSourceKey !== state.appliedDraftImageUrl)) {
     try {
       const importedImage = await importDraftImage(draft, primaryImageUrl);
@@ -720,7 +726,7 @@ async function applyPendingSelectionDraft() {
   setCaptureStatus(buildCaptureStatusText({
     title: draft.suggestedTitle || "",
     content: draft.content || "",
-    imageCount: draftImageUrls.length || (draft.screenshotDataUrl ? 1 : 0),
+    imageCount: draftImageUrls.length || (hasScreenshotFallback ? 1 : 0),
     captureMode
   }));
 

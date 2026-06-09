@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Fixed
+
+- Prevented the side panel from failing on first open when the pending draft in local storage is empty or incomplete
+- Restored previously saved Prompt data immediately on startup instead of waiting for a new capture event
+
 ## 0.1.0 - 2026-06-07
 
 Initial public release.
